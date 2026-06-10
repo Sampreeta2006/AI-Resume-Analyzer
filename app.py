@@ -431,11 +431,13 @@ Match Score: {best_match['score']*100:.2f}%
     st.write("Occupation Score:", occupation_score)
     st.write("Skill Score:", skill_score)
     ats_score = (
-    occupation_score * 0.5 +
-    skill_score * 0.5
-    ) 
+    occupation_score * 0.3 +
+    skill_score * 0.7
+    )
 
-    ats_score = min(max(ats_score, 50), 100)
+    ats_score = ats_score + 40
+
+    ats_score = min(ats_score, 100)
     st.subheader("📊 ATS Score")
     if ats_score >= 80:
         st.success(f"ATS Score: {ats_score:.2f}%")
