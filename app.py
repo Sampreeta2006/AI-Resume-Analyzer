@@ -105,7 +105,8 @@ if uploaded_file is not None:
         resume_text,
         skills_list
     )
-
+    st.write("Detected Skills Count:", len(resume_skills))
+    st.write("Detected Skills:", resume_skills)
     st.subheader("🛠 Detected Resume Skills")
 
     if resume_skills:
@@ -428,8 +429,11 @@ Match Score: {best_match['score']*100:.2f}%
     matched_skills /
     max(len(required_skills), 1)
     ) * 100
-    st.write("Occupation Score:", occupation_score)
-    st.write("Skill Score:", skill_score)
+    st.write("Required Skills Count:", len(required_skills))
+    st.write("Required Skills:", required_skills)
+
+    st.write("Matched Skills:", matched_skills)
+    st.write("Missing Skills:", missing_skills)
     ats_score = (
     occupation_score * 0.3 +
     skill_score * 0.7
