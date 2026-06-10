@@ -428,7 +428,8 @@ Match Score: {best_match['score']*100:.2f}%
     matched_skills /
     max(len(required_skills), 1)
     ) * 100
-
+    st.write("Occupation Score:", occupation_score)
+    st.write("Skill Score:", skill_score)
     ats_score = (
     occupation_score * 0.5 +
     skill_score * 0.5
