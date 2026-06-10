@@ -6,16 +6,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
 import io
-import os
 
-st.write("Knowledge exists:",
-         os.path.exists("data/ONET/db_30_3_excel/Knowledge.xlsx"))
-
-st.write("Occupation exists:",
-         os.path.exists("data/ONET/db_30_3_excel/Occupation Data.xlsx"))
-
-st.write("Skills exists:",
-         os.path.exists("data/ONET/db_30_3_excel/Essential Skills.xlsx"))
 
 # =====================================
 # PAGE CONFIG
@@ -368,7 +359,7 @@ Match Score: {best_match['score']*100:.2f}%
     # =====================================
 
     knowledge_df = pd.read_excel(
-        r"Data/ONET/db_30_3_excel/Knowledge.xlsx",
+        r"data/ONET/db_30_3_excel/Knowledge.xlsx",
         engine="openpyxl"
     )
 
