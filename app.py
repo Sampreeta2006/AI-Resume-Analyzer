@@ -7,6 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
 import io
 
+
 # =====================================
 # PAGE CONFIG
 # =====================================
@@ -358,7 +359,7 @@ Match Score: {best_match['score']*100:.2f}%
     # =====================================
 
     knowledge_df = pd.read_excel(
-        r"Data/ONET/db_30_3_excel/Knowledge.xlsx",
+        r"data/ONET/db_30_3_excel/Knowledge.xlsx",
         engine="openpyxl"
     )
 
@@ -431,13 +432,10 @@ Match Score: {best_match['score']*100:.2f}%
     ats_score = (
     occupation_score * 0.5 +
     skill_score * 0.5
-    )
+    ) 
 
     ats_score = min(max(ats_score, 50), 100)
-   
-
     st.subheader("📊 ATS Score")
-
     if ats_score >= 80:
         st.success(f"ATS Score: {ats_score:.2f}%")
     elif ats_score >= 60:
