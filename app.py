@@ -419,7 +419,6 @@ Match Score: {best_match['score']*100:.2f}%
         # =====================================
     # ATS SCORE
     # =====================================
-
     occupation_score = best_match["score"] * 100
 
     matched_skills = len(required_skills) - len(missing_skills)
@@ -429,9 +428,13 @@ Match Score: {best_match['score']*100:.2f}%
     max(len(required_skills), 1)
     ) * 100
 
-    ats_score = occupation_score + (skill_score * 0.3)
+    ats_score = (
+    occupation_score * 0.5 +
+    skill_score * 0.5
+    )
 
-    ats_score = min(ats_score, 100)
+    ats_score = min(max(ats_score, 50), 100)
+   
 
     st.subheader("📊 ATS Score")
 
